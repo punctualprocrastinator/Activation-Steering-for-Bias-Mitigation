@@ -1,5 +1,108 @@
-# Activation-Steering-for-Bias-Mitigation
-as large language models (LLMs) become more integrated into societal systems, the risk of them perpetuating and amplifying harmful biases becomes a critical safety concern. Traditional methods for mitigating bias often rely on data filtering or post-hoc output moderation, which treat the model as an opaque black box. In this work, we introduce a complete, end-to-end system that uses techniques from mechanistic interpretability to both identify and actively mitigate bias directly within a model's internal workings. Our method involves two primary stages. First, we train linear "probes" on the internal activations of a model to detect the latent representations of various biases (e.g., gender, race, age). Our experiments on `gpt2-large` demonstrate that these probes can identify biased content with near-perfect accuracy, revealing that bias representations become most salient in the model's later layers. Second, we leverage these findings to compute "steering vectors" by contrasting the model's activation patterns for biased and neutral statements. By adding these vectors during inference, we can actively steer the model's generative process away from producing harmful, stereotypical, or biased content in real-time. We demonstrate the efficacy of this activation steering technique, showing that it successfully alters biased completions toward more neutral alternatives. We present our work as a robust and reproducible system that offers a more direct and interpretable approach to building safer and more accountable LLMs.
-# Requirements (run in Colab):
-!pip install transformer-lens torch numpy pandas scikit-learn matplotlib tqdm
-!pip install circuitsvis
+Here’s a clean, well-structured **Markdown** version of your project description:
+
+````markdown
+# Activation Steering for Bias Mitigation
+
+This repository contains the official implementation for the paper:  
+**Activation Steering for Bias Mitigation: An Interpretable Approach to Safer LLMs**
+
+This work introduces a complete, end-to-end system that uses techniques from **mechanistic interpretability** to both **identify** and **actively mitigate bias** directly within a model's internal workings.
+
+---
+
+## 🚀 Overview
+
+Instead of treating large language models as black boxes, this project *"looks inside"* to understand **how** and **where** they represent abstract concepts like bias.  
+We use this understanding to perform **real-time interventions**, steering the model away from generating harmful content **without any retraining**.
+
+**Core Pipeline:**
+1. **Detect** → Train simple linear *probes* on the internal activations of `gpt2-large` to find where the model represents bias.  
+   - **Key finding:** Bias becomes linearly separable and highly detectable in the **later layers** of the model.
+2. **Steer** → Compute *steering vectors* from these biased representations.  
+   - Add these vectors to the model’s activations **during inference** to guide text generation toward **safer, more neutral outputs**.
+
+---
+
+## ✨ Key Features
+
+- **Layer-wise Bias Analysis**  
+  First systematic evaluation of where bias is represented across all 36 layers of `gpt2-large`.
+
+- **End-to-End Reproducible System**  
+  Complete documented pipeline: data generation → real-time steering.
+
+- **TransformerLens Integration**  
+  Clean, educational implementation using the standard **TransformerLens** interpretability library.
+
+- **Real-Time Mitigation**  
+  Bias mitigation during inference without costly fine-tuning or retraining.
+
+---
+
+## 📊 Figures
+
+- **Figure 1:** Probe accuracy across all 36 layers of `gpt2-large`. Bias becomes highly detectable in later layers.
+- **Figure 2:** PCA plot of activations from the most predictive layer, showing clear separation between neutral (blue) and biased (red) concepts.
+
+---
+
+## 🛠️ Setup and Installation
+
+Optimized for **Google Colab** with GPU.
+
+```bash
+# Clone the repository
+git clone https://github.com/punctualprocrastinator/Activation-Steering-for-Bias-Mitigation.git
+cd Activation-Steering-for-Bias-Mitigation
+
+# Install dependencies
+pip install -r requirements.txt
+````
+
+---
+
+## ⚡ How to Run
+
+Run the **full demo** (training probes + testing steering):
+
+```bash
+python main.py
+```
+
+The script will:
+
+1. Load `gpt2-large`
+2. Generate the bias dataset
+3. Train a diagnostic probe for each layer
+4. Compute the steering vectors
+5. Run tests for **bias detection** & **mitigation**
+
+---
+
+## 📄 Citation
+
+If you find this work useful, please cite:
+
+```bibtex
+@misc{dubey2025activation,
+      title={Activation Steering for Bias Mitigation: An Interpretable Approach to Safer LLMs}, 
+      author={Shivam Dubey},
+      year={2025},
+      eprint={2508.09019},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+
+```
+
+---
+
+If you want, I can also **add Colab badge integration** so people can run the demo instantly without local setup. That would make it more appealing for your repo’s README.
+```
