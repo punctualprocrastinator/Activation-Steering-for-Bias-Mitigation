@@ -100,9 +100,4 @@ If you find this work useful, please cite:
 
 This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
-```
 
----
-
-If you want, I can also **add Colab badge integration** so people can run the demo instantly without local setup. That would make it more appealing for your repo’s README.
-```
