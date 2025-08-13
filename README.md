@@ -1,4 +1,3 @@
-Here’s a clean, well-structured **Markdown** version of your project description:
 
 ````markdown
 # Activation Steering for Bias Mitigation
@@ -37,14 +36,7 @@ We use this understanding to perform **real-time interventions**, steering the m
 - **Real-Time Mitigation**  
   Bias mitigation during inference without costly fine-tuning or retraining.
 
----
 
-## 📊 Figures
-
-- **Figure 1:** Probe accuracy across all 36 layers of `gpt2-large`. Bias becomes highly detectable in later layers.
-- **Figure 2:** PCA plot of activations from the most predictive layer, showing clear separation between neutral (blue) and biased (red) concepts.
-
----
 
 ## 🛠️ Setup and Installation
 
