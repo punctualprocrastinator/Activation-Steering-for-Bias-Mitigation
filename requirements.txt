@@ -1,0 +1,8 @@
+transformer-lens
+torch
+numpy
+pandas
+scikit-learn
+matplotlib
+tqdm
+circuitsvis
